@@ -9,3 +9,4 @@ __pycache__/
 .env
 .envrc
 .idea/
+.mypy_cache/
