@@ -10,3 +10,5 @@ __pycache__/
 .envrc
 .idea/
 .mypy_cache/
+Personal/
+photo-*
