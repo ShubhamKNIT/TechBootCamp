@@ -7,21 +7,18 @@ def wait_for_postgres(host, max_retries=5, delay_seconds=5):
         try:
             result = subprocess.run(
                 ["pg_isready", "-h", host],
-                shell=True,
-                check = True,
-                capture_output = True,
-                text = True
+                check=True,
+                capture_output=True,
+                text=True
             )
             if "accepting connections" in result.stdout:
                 print("Successfully connected to Postgres")
                 return True
         except subprocess.CalledProcessError as e:
-            print(f"Error connecting to Postgres: {e}")
             retries += 1
-            print(
-                f"Retrying in {delay_seconds} seconds... (Attempt {retries/max_retries})"
-            )
+            print(f"Postgres not ready yet ({retries}\{max_retries})")
             time.sleep(delay_seconds)
+
     print("Max retries reached. Exiting")
     return False
 
@@ -47,25 +44,25 @@ destination_config = {
 dump_command = [
     'pg_dump',
     '-h', source_config['host'],
-    '-u', source_config['user'],
+    '-U', source_config['user'],
     '-d', source_config['dbname'],
     '-f', 'data_dump.sql',
     '-w'
 ]
 
-subprocess_env = dict(PG_PASSWORD=source_config['password'])
+subprocess_env = dict(PGPASSWORD=source_config['password'])
 
 subprocess.run(dump_command, env=subprocess_env, check=True)
 
 load_command = [
     'psql',
     '-h', destination_config['host'],
-    '-u', destination_config['user'],
+    '-U', destination_config['user'],
     '-d', destination_config['dbname'],
     '-a', '-f', 'data_dump.sql',
 ]
 
-subprocess_env = dict(PG_PASSWORD=destination_config['password'])
+subprocess_env = dict(PGPASSWORD=destination_config['password'])
 
 subprocess.run(load_command, env=subprocess_env, check=True)
 
