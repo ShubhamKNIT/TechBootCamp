@@ -7,6 +7,7 @@ def wait_for_postgres(host, max_retries=5, delay_seconds=5):
         try:
             result = subprocess.run(
                 ["pg_isready", "-h", host],
+                shell=True,
                 check = True,
                 capture_output = True,
                 text = True

@@ -1,0 +1,131 @@
+Attaching to dbt-1, destination_postgres-1, elt_script-1, source_postgres-1
+source_postgres-1  | 
+source_postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+source_postgres-1  | 
+destination_postgres-1  | 
+destination_postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+destination_postgres-1  | 
+dbt-1                   | [0m10:18:17  Running with dbt=1.4.7
+dbt-1                   | [0m10:18:17  Found 4 models, 19 tests, 0 snapshots, 0 analyses, 291 macros, 0 operations, 0 seed files, 3 sources, 0 exposures, 0 metrics
+dbt-1                   | [0m10:18:17  
+dbt-1                   | [0m10:18:17  Concurrency: 1 threads (target='dev')
+dbt-1                   | [0m10:18:17  
+dbt-1                   | [0m10:18:17  1 of 4 START sql view model public.actors ...................................... [RUN]
+dbt-1                   | [0m10:18:17  1 of 4 ERROR creating sql view model public.actors ............................. [[31mERROR[0m in 0.10s]
+dbt-1                   | [0m10:18:17  2 of 4 START sql view model public.film_actors ................................. [RUN]
+dbt-1                   | [0m10:18:17  2 of 4 ERROR creating sql view model public.film_actors ........................ [[31mERROR[0m in 0.04s]
+dbt-1                   | [0m10:18:17  3 of 4 START sql view model public.films ....................................... [RUN]
+dbt-1                   | [0m10:18:17  3 of 4 ERROR creating sql view model public.films .............................. [[31mERROR[0m in 0.02s]
+dbt-1                   | [0m10:18:17  4 of 4 SKIP relation public.film_ratings ....................................... [[33mSKIP[0m]
+dbt-1                   | [0m10:18:17  
+dbt-1                   | [0m10:18:17  Finished running 4 view models in 0 hours 0 minutes and 0.34 seconds (0.34s).
+dbt-1                   | [0m10:18:17  
+dbt-1                   | [0m10:18:17  [31mCompleted with 3 errors and 0 warnings:[0m
+dbt-1                   | [0m10:18:17  
+dbt-1                   | [0m10:18:17  [33mDatabase Error in model actors (models/example/actors.sql)[0m
+dbt-1                   | [0m10:18:17    relation "public.actors" does not exist
+dbt-1                   | [0m10:18:17    LINE 4:     SELECT * FROM "destination_db"."public"."actors"
+dbt-1                   | [0m10:18:17                              ^
+dbt-1                   | [0m10:18:17    compiled Code at target/run/custom_postgres/models/example/actors.sql
+dbt-1                   | [0m10:18:17  
+dbt-1                   | [0m10:18:17  [33mDatabase Error in model film_actors (models/example/film_actors.sql)[0m
+dbt-1                   | [0m10:18:17    relation "public.film_actors" does not exist
+dbt-1                   | [0m10:18:17    LINE 4:     SELECT * FROM "destination_db"."public"."film_actors"
+dbt-1                   | [0m10:18:17                              ^
+dbt-1                   | [0m10:18:17    compiled Code at target/run/custom_postgres/models/example/film_actors.sql
+dbt-1                   | [0m10:18:17  
+dbt-1                   | [0m10:18:17  [33mDatabase Error in model films (models/example/films.sql)[0m
+dbt-1                   | [0m10:18:17    relation "public.films" does not exist
+dbt-1                   | [0m10:18:17    LINE 4:     SELECT * FROM "destination_db"."public"."films"
+dbt-1                   | [0m10:18:17                              ^
+dbt-1                   | [0m10:18:17    compiled Code at target/run/custom_postgres/models/example/films.sql
+dbt-1                   | [0m10:18:17  
+dbt-1                   | [0m10:18:17  Done. PASS=0 WARN=0 ERROR=3 SKIP=1 TOTAL=4
+[Kdbt-1 exited with code 1
+elt_script-1            | Error connecting to Postgres: Command '['pg_isready', '-h', 'source_postgres']' returned non-zero exit status 2.
+elt_script-1            | Retrying in 5 seconds... (Attempt 0.2)
+elt_script-1            | Error connecting to Postgres: Command '['pg_isready', '-h', 'source_postgres']' returned non-zero exit status 2.
+elt_script-1            | Retrying in 5 seconds... (Attempt 0.4)
+elt_script-1            | Error connecting to Postgres: Command '['pg_isready', '-h', 'source_postgres']' returned non-zero exit status 2.
+elt_script-1            | Retrying in 5 seconds... (Attempt 0.6)
+elt_script-1            | Error connecting to Postgres: Command '['pg_isready', '-h', 'source_postgres']' returned non-zero exit status 2.
+elt_script-1            | Retrying in 5 seconds... (Attempt 0.8)
+elt_script-1            | Error connecting to Postgres: Command '['pg_isready', '-h', 'source_postgres']' returned non-zero exit status 2.
+elt_script-1            | Retrying in 5 seconds... (Attempt 1.0)
+elt_script-1            | Max retries reached. Exiting
+[Kelt_script-1 exited with code 1
+Gracefully Stopping... press Ctrl+C again to force
+[K Container customeltproject-dbt-1  [32mStopping[0m
+[K Container customeltproject-dbt-1  [32mStopped[0m
+[K Container customeltproject-elt_script-1  [32mStopping[0m
+[K Container customeltproject-elt_script-1  [32mStopped[0m
+[K Container customeltproject-source_postgres-1  [32mStopping[0m
+[K Container customeltproject-destination_postgres-1  [32mStopping[0m
+[K Container customeltproject-destination_postgres-1  [32mStopped[0m
+[K Container customeltproject-source_postgres-1  [32mStopped[0m
+Attaching to dbt-1, destination_postgres-1, elt_script-1, source_postgres-1
+destination_postgres-1  | 
+destination_postgres-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+destination_postgres-1  | 
+source_postgres-1       | 
+source_postgres-1       | PostgreSQL Database directory appears to contain a database; Skipping initialization
+source_postgres-1       | 
+dbt-1                   | [0m10:19:49  Running with dbt=1.4.7
+dbt-1                   | [0m10:19:49  Unable to do partial parsing because a project config has changed
+dbt-1                   | [0m10:19:49  Found 4 models, 19 tests, 0 snapshots, 0 analyses, 291 macros, 0 operations, 0 seed files, 3 sources, 0 exposures, 0 metrics
+dbt-1                   | [0m10:19:49  
+dbt-1                   | [0m10:19:49  Concurrency: 1 threads (target='dev')
+dbt-1                   | [0m10:19:49  
+dbt-1                   | [0m10:19:49  1 of 4 START sql table model public.actors ..................................... [RUN]
+dbt-1                   | [0m10:19:49  1 of 4 ERROR creating sql table model public.actors ............................ [[31mERROR[0m in 0.06s]
+dbt-1                   | [0m10:19:49  2 of 4 START sql table model public.film_actors ................................ [RUN]
+dbt-1                   | [0m10:19:49  2 of 4 ERROR creating sql table model public.film_actors ....................... [[31mERROR[0m in 0.02s]
+dbt-1                   | [0m10:19:49  3 of 4 START sql table model public.films ...................................... [RUN]
+dbt-1                   | [0m10:19:49  3 of 4 ERROR creating sql table model public.films ............................. [[31mERROR[0m in 0.02s]
+dbt-1                   | [0m10:19:49  4 of 4 SKIP relation public.film_ratings ....................................... [[33mSKIP[0m]
+dbt-1                   | [0m10:19:49  
+dbt-1                   | [0m10:19:49  Finished running 4 table models in 0 hours 0 minutes and 0.19 seconds (0.19s).
+dbt-1                   | [0m10:19:49  
+dbt-1                   | [0m10:19:49  [31mCompleted with 3 errors and 0 warnings:[0m
+dbt-1                   | [0m10:19:49  
+dbt-1                   | [0m10:19:49  [33mDatabase Error in model actors (models/example/actors.sql)[0m
+dbt-1                   | [0m10:19:49    relation "public.actors" does not exist
+dbt-1                   | [0m10:19:49    LINE 8:     SELECT * FROM "destination_db"."public"."actors"
+dbt-1                   | [0m10:19:49                              ^
+dbt-1                   | [0m10:19:49    compiled Code at target/run/custom_postgres/models/example/actors.sql
+dbt-1                   | [0m10:19:49  
+dbt-1                   | [0m10:19:49  [33mDatabase Error in model film_actors (models/example/film_actors.sql)[0m
+dbt-1                   | [0m10:19:49    relation "public.film_actors" does not exist
+dbt-1                   | [0m10:19:49    LINE 8:     SELECT * FROM "destination_db"."public"."film_actors"
+dbt-1                   | [0m10:19:49                              ^
+dbt-1                   | [0m10:19:49    compiled Code at target/run/custom_postgres/models/example/film_actors.sql
+dbt-1                   | [0m10:19:49  
+dbt-1                   | [0m10:19:49  [33mDatabase Error in model films (models/example/films.sql)[0m
+dbt-1                   | [0m10:19:49    relation "public.films" does not exist
+dbt-1                   | [0m10:19:49    LINE 8:     SELECT * FROM "destination_db"."public"."films"
+dbt-1                   | [0m10:19:49                              ^
+dbt-1                   | [0m10:19:49    compiled Code at target/run/custom_postgres/models/example/films.sql
+dbt-1                   | [0m10:19:49  
+dbt-1                   | [0m10:19:49  Done. PASS=0 WARN=0 ERROR=3 SKIP=1 TOTAL=4
+[Kdbt-1 exited with code 1
+elt_script-1            | Error connecting to Postgres: Command '['pg_isready', '-h', 'source_postgres']' returned non-zero exit status 2.
+elt_script-1            | Retrying in 5 seconds... (Attempt 0.2)
+elt_script-1            | Error connecting to Postgres: Command '['pg_isready', '-h', 'source_postgres']' returned non-zero exit status 2.
+elt_script-1            | Retrying in 5 seconds... (Attempt 0.4)
+elt_script-1            | Error connecting to Postgres: Command '['pg_isready', '-h', 'source_postgres']' returned non-zero exit status 2.
+elt_script-1            | Retrying in 5 seconds... (Attempt 0.6)
+elt_script-1            | Error connecting to Postgres: Command '['pg_isready', '-h', 'source_postgres']' returned non-zero exit status 2.
+elt_script-1            | Retrying in 5 seconds... (Attempt 0.8)
+elt_script-1            | Error connecting to Postgres: Command '['pg_isready', '-h', 'source_postgres']' returned non-zero exit status 2.
+elt_script-1            | Retrying in 5 seconds... (Attempt 1.0)
+elt_script-1            | Max retries reached. Exiting
+[Kelt_script-1 exited with code 1
+Gracefully Stopping... press Ctrl+C again to force
+[K Container customeltproject-dbt-1  [32mStopping[0m
+[K Container customeltproject-dbt-1  [32mStopped[0m
+[K Container customeltproject-elt_script-1  [32mStopping[0m
+[K Container customeltproject-elt_script-1  [32mStopped[0m
+[K Container customeltproject-destination_postgres-1  [32mStopping[0m
+[K Container customeltproject-source_postgres-1  [32mStopping[0m
+[K Container customeltproject-source_postgres-1  [32mStopped[0m
+[K Container customeltproject-destination_postgres-1  [32mStopped[0m
